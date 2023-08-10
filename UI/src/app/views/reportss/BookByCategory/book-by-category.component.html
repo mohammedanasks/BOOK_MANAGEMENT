@@ -1,0 +1,88 @@
+
+<div class="main">
+  <div class="title">
+    <mat-label style="margin-top: 100px;" >Technology</mat-label>
+  </div>
+  <table  mat-table [dataSource]="TechnologySource" >  
+    <ng-container matColumnDef="Id">
+      <th class="head" mat-header-cell *matHeaderCellDef> Id </th>
+      <td class="data" mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Name">
+      <th class="head"  mat-header-cell *matHeaderCellDef> Name </th>
+      <td class="data" mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Category">
+      <th  class="head" mat-header-cell *matHeaderCellDef>Category</th>
+      <td class="data" mat-cell *matCellDef="let element">{{element.category}}
+
+        <!-- <a (click)=" DeleteStudent(element)" color="warn"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home">delete</mat-icon></a>
+        <a routerLink="/Student/EditStudent/{{element.id}}" routerLinkActive="router-link-active" color="warn"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home">edit</mat-icon></a>
+         -->
+      </td>      
+    </ng-container>
+  
+    <tr  mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table> 
+<div class="title">
+  <mat-label style="margin-top: 100px;" >Autobiography</mat-label>
+</div>
+ 
+  <table  mat-table [dataSource]="AutobioGraphySource" >  
+    <ng-container matColumnDef="Id">
+      <th class="head" mat-header-cell *matHeaderCellDef> Id </th>
+      <td class="data" mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Name">
+      <th class="head"  mat-header-cell *matHeaderCellDef> Name </th>
+      <td class="data" mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Category">
+      <th  class="head" mat-header-cell *matHeaderCellDef>Category</th>
+      <td class="data" mat-cell *matCellDef="let element">{{element.category}}
+
+        <!-- <a (click)=" DeleteStudent(element)" color="warn"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home">delete</mat-icon></a>
+        <a routerLink="/Student/EditStudent/{{element.id}}" routerLinkActive="router-link-active" color="warn"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home">edit</mat-icon></a>
+         -->
+      </td>      
+    </ng-container>
+  
+    <tr  mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table> 
+
+  <div class="title">
+    <mat-label style="margin-top: 100px;" >Fictions</mat-label>
+  </div>
+   
+    <table  mat-table [dataSource]="FictionSource" >  
+      <ng-container matColumnDef="Id">
+        <th class="head" mat-header-cell *matHeaderCellDef> Id </th>
+        <td class="data" mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Name">
+        <th class="head"  mat-header-cell *matHeaderCellDef> Name </th>
+        <td class="data" mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Category">
+        <th  class="head" mat-header-cell *matHeaderCellDef>Category</th>
+        <td class="data" mat-cell *matCellDef="let element">{{element.category}}
+  
+          <!-- <a (click)=" DeleteStudent(element)" color="warn"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home">delete</mat-icon></a>
+          <a routerLink="/Student/EditStudent/{{element.id}}" routerLinkActive="router-link-active" color="warn"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home">edit</mat-icon></a>
+           -->
+        </td>      
+      </ng-container>
+    
+      <tr  mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table> 
+
+
+
+</div>
+
+
+
+

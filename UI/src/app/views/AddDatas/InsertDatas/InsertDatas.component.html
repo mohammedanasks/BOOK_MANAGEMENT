@@ -1,0 +1,51 @@
+
+<div  class="main">
+
+  <div class="container1" >
+    <div class="tittle">
+      <div class="tittletext"> 
+        <h4>AddAuthor</h4></div>
+     </div>
+    <form >
+      <div  class="form-group" >
+        <label style="margin-top: 0px;"  for="exampleFormControlInput1">Name</label>
+        <input [(ngModel)]="author.name" type="text" name="name1"  class="form-control" id="exampleFormControlInput1" >
+      </div>
+      <button (click)="Addauthor()">add</button>
+    </form>
+
+  </div>
+  
+  <div class="container1" >
+    <div class="tittle">
+      <div class="tittletext"> 
+        <h4>AddCategory</h4></div>
+     </div>
+    <form >
+      <div  class="form-group" >
+        <label style="margin-top: 0px;"  for="exampleFormControlInput1">Category</label>
+        <input [(ngModel)]="category.name" type="text" name="name"   class="form-control" id="exampleFormControlInput1" >
+      </div>
+      <button (click)="AddCategory()">add</button>
+    </form>
+  </div>
+  
+  <div class="container1" >
+    <div class="tittle">
+      <div class="tittletext"> 
+        <h4>AddDepartMent</h4></div>
+     </div>
+    <form >
+      <div  class="form-group" >
+        <label style="margin-top: 0px;"  for="exampleFormControlInput1">AddDepartment</label>
+        <input [(ngModel)]="department.name" type="text" name="name"  class="form-control" id="exampleFormControlInput1" >
+      </div>
+      <button (click)="AddDepartment()">add</button>
+    </form>
+   
+  </div>
+  
+
+</div>
+
+

@@ -1,0 +1,44 @@
+
+
+
+input{
+  margin-left: 25px;
+}
+
+
+
+#authe{
+  margin-left: 18px;
+}
+
+.AddBookContainer h4{
+  text-align: center;
+  margin-top: 30px;
+
+}
+
+.bookname{
+  margin-left: 0px;
+  padding: 10px;
+}
+.container1{
+  display: flex;
+  
+}
+table{
+  margin-left: 150px;
+  margin-top: 80px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+table thead{
+  border: 1px solid black;
+  padding: 30px;
+  font-size: larger;
+}
+
+table tr{
+  border: 1px solid black;
+}
+

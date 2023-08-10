@@ -1,0 +1,86 @@
+<div class="main" style="display: flex; margin-top: 100px">
+  <table>
+    <tbody>
+      <div table style="margin-left: 200px; border: 1px solid black; padding: 10px" class="container1">
+        <div class="tittle">
+          <div class="tittletext">
+            <h4 style="border: 1px solid black; font-weight: bold">BorrowBook</h4>
+          </div>
+        </div>
+
+        <label style="margin-top: 15px" for="exampleFormControlInput1">Book</label>
+        <div class="form-group" *ngFor="let line of this.borrowBook.borrowItems; let i = index">
+          <select [(ngModel)]="line. bookId" class="form-control"name="selectAuthor{{ i }}">
+            <option  [value]="item.id" [text]="item.name" *ngFor="let item of book"></option>
+          </select>
+          <button style="color: rgb(255, 55, 0)" (click)="removeBook(i)">RemoveBook</button>
+        </div>
+        <div style="margin-top: 10px; margin-left: 40px" class="form-group">
+          <button style="margin-right: 30px; color: green" (click)="AddBooks()">Add Book</button>
+        </div>
+
+          <div class="form-group">
+          <label style="margin-top: 15px" for="exampleFormControlInput1">StudentName</label>
+          <select [(ngModel)]="this.borrowBook.studentId" class="form-control" name="departments">
+            <option [value]="stu.id" [text]="stu.name" *ngFor="let stu of students">select</option>
+          </select>
+        </div>   
+     
+
+        <div>
+          <mat-label style="margin-top: 15px" for="exampleFormControlInput1">Return Date</mat-label>
+          <mat-form-field>
+            <input [(ngModel)]="this.borrowBook.returnDate" matInput type="datetime-local" placeholder="start date" />
+          </mat-form-field>
+        </div>
+        <di *ngFor="let item of borrowBook.borrowItems">
+          <button style="margin-top: 30px" (click)=" BookCopiesDecrement(item.bookId)" (click)="TakeBook()">Proceed</button>
+        </di>
+ 
+      </div>
+    </tbody>
+  </table>
+
+  <table style="margin-left: 100px; text-align: center; align-items: center">
+    <thead>
+      <th style="border: 1px solid black">StudentName</th>
+      <th style="border: 1px solid black">BookName</th>
+      <th style="border: 1px solid black">ReturnDate</th>
+      <th style="border: 1px solid black">Fine</th>
+      <th style="border: 1px solid black">Actions</th>
+    </thead>
+    <tbody>
+      <tr style="border: 1px solid black" *ngFor="let linew of this.BorrowData">
+        <td style="border: 1px solid black">{{ linew.studentName }}</td>
+        <td>
+          <p *ngFor="let item of linew.borrowItems">{{ item.bookName}}</p>
+        </td>
+        <td  style="border: 1px solid black">{{linew.returnDate}}</td>
+        <td *ngIf="linew.fine > 0" style="border: 1px solid black; padding: 10px; text-align: center">
+          {{ linew.fine }}
+        </td>
+        <td *ngIf="linew.fine <= 0" style="border: 1px solid black; padding: 10px; text-align: center">nill</td>
+        <button *ngIf="linew.fine > 0" (click)="ClosBook(linew)" style="margin-left: 6px; color: rgb(30, 210, 186)">
+          ReturnBook
+        </button>
+        <div *ngFor="let item of linew.borrowItems">
+          <button *ngIf="linew.fine <= 0"  (click)="BookCopiesIncrement(item.bookId)"  (click)="DeleteBorrowBook(linew.id)"style="margin-left: 6px; color: rgb(30, 210, 186)">
+            ReturnBook
+          </button>
+        </div>
+       
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+
+ 
+
+ 

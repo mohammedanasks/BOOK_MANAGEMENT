@@ -1,0 +1,86 @@
+
+<div class=" main" style="display: flex;">
+
+  <form class="example-form" style="margin-top: 50px; height:300px;background-color: white;margin-left: 70px;">
+    <div style="text-align: center;">
+      <mat-label style="text-align:center ;font-size:large">AddStudent</mat-label>
+    </div>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>StudentName</mat-label>
+      <input  [(ngModel)]="student.name" name="name1" type="text" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+             placeholder="name">
+      <mat-hint>Errors appear instantly!</mat-hint>
+      <mat-error *ngIf="emailFormControl.hasError('text') && !emailFormControl.hasError('required')">
+        min 3 character required
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field style="width:450px;" appearance="standard">
+      <mat-label>Department</mat-label>
+      <mat-select [(ngModel)]="this.student.departmentId" name="department">
+        <mat-option [value]="dep.id"  *ngFor="let dep of department">
+          {{dep.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field> 
+
+    <button (click)="AddStudent()"  color="primary" mat-raised-button >AddStudent</button>
+
+  </form>
+  
+  <!-- class="mat-elevation-z8" -->
+  <table mat-table [dataSource]="dataSource" >  
+    <ng-container matColumnDef="Id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Department">
+      <th mat-header-cell *matHeaderCellDef> Department </th>
+      <td mat-cell *matCellDef="let element"> {{element.department}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let element">
+        <a (click)=" DeleteStudent(element)" color="warn"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home">delete</mat-icon></a>
+        <a routerLink='/Student/EditStudent/{{element.id}}' routerLinkActive="router-link-active" color="warn"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home">edit</mat-icon></a>
+        
+      </td>      
+    </ng-container>
+
+    <tr style="font-weight: bold;" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table> 
+
+
+</div> 
+
+
+
+
+<!-- 
+
+<table style="margin-left: 100px; margin-top:40px">
+  <thead>
+    <th style="border: 1px solid black;">Name</th>
+    <th style="border: 1px solid black;">Department</th>
+    <th style="border: 1px solid black;">Actions</th>
+
+  </thead>
+  <tbody>
+    <tr style="border: 1px solid black;" *ngFor="let data of this.StudentData;">
+      <td style="border: 1px solid black;">{{data. name}}</td>{{data.department}}<td style="border: 1px solid black;padding: 5PX;">
+       <button (click)=" DeleteStudent(data)" style="color: red;" >Delete</button>
+       <a>
+        <button routerLink="/Student/EditStudent/{{data.id}}" routerLinkActive="router-link-active"style="margin-left: 6px; color: rgb(30, 210, 186);" >Edit</button>
+       </a></td>
+    </tr>
+  </tbody>
+</table>  -->

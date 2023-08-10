@@ -1,0 +1,32 @@
+
+<div class="main">
+    <div class="title">
+      <mat-label style="margin-top: 100px;" >BorrowedBooks</mat-label>
+    </div>
+    <table  mat-table [dataSource]="BorrowedSource">  
+      <ng-container matColumnDef="Id">
+        <th class="head" mat-header-cell *matHeaderCellDef> Id </th>
+        <td class="data" mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+      <ng-container matColumnDef="StudentName">
+        <th class="head"  mat-header-cell *matHeaderCellDef>StudentName </th>
+        <td class="data" mat-cell *matCellDef="let element"> {{element.studentName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="BookName">
+        <th class="head"  mat-header-cell *matHeaderCellDef>BookName </th>
+        <td class="data" mat-cell *matCellDef="let element">{{element.borrowItems[0].bookName}}</td>
+      </ng-container>
+      <ng-container matColumnDef="ReturnDate">
+        <th  class="head" mat-header-cell *matHeaderCellDef>ReturnDate</th>
+        <td class="data" mat-cell *matCellDef="let element">{{element.returnDate}}
+  
+          <!-- <a (click)=" DeleteStudent(element)" color="warn"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home">delete</mat-icon></a>
+          <a routerLink="/Student/EditStudent/{{element.id}}" routerLinkActive="router-link-active" color="warn"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home">edit</mat-icon></a>
+           -->
+        </td>      
+      </ng-container>
+    
+      <tr  mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table> 
+  </div>

@@ -1,0 +1,38 @@
+.example-full-width {
+    width: 100%;
+  }
+
+  table {
+    width: 70%;
+    margin-bottom: 20px;
+
+  }
+
+  .head{
+    text-align: center;
+    font-size:larger;
+    font-weight: bolder;
+
+
+  }
+  .main{
+    margin-top: 50px;
+    margin-left: 400px;
+  }
+
+  .data{
+    text-align: center;
+    
+  }
+
+  .title{
+    text-align: center;
+    margin-left: 0px;
+    width: 550px;
+    font-size: larger;
+    font-weight: bolder;
+    background-color: rgb(166, 166, 190);
+    background-size: cover;
+    color: white;
+
+  }

@@ -1,0 +1,59 @@
+
+
+
+
+  <!-- <div class="container1" >
+
+    <div class="tittle">
+      <div class="tittletext"> 
+        <h4>AddStudent</h4></div>
+     </div>
+      <div  class="form-group">
+        <label style="margin-top: 40px;"  for="exampleFormControlInput1">Name</label>
+        <input [(ngModel)]="student.studentName" type="email" name="name"  class="form-control" id="exampleFormControlInput1" >
+      </div>
+      <div  class="form-group">
+        <label style="margin-top: 40px;"  for="exampleFormControlInput1">Name</label>
+        <input [(ngModel)]="student.departmentName"  type="email" name="name1"  class="form-control" id="exampleFormControlInput1" >
+      </div>
+  
+      <button (click)="UpdateStudent()">Add</button>
+  </div> -->
+
+
+  <mat-card  style="height: 500px; margin-left: 350px; margin-top:200px ; width: 1000px;">
+    <mat-card-title  class="">
+        <div style="margin-left: 450px; margin-top: 60px;" class="card-title-text">Edit Student</div>
+        <mat-divider></mat-divider>
+    </mat-card-title>
+    <mat-card-content>
+            <div style="margin-left: 350px; margin-top:80px ;"  fxLayout="row wrap">
+                <div fxFlex="50" fxFlex.gt-xs="51" class="pr-16">
+                    <div class="pb-16">
+                      <mat-form-field appearance="fill"  class="full-width">
+                        <mat-label>StdentName</mat-label>
+                        <input [(ngModel)]="student.name" matInput>
+                      </mat-form-field>
+                        <!-- <small 
+                        *ngIf="basicForm.controls['username'].hasError('minlength') && basicForm.controls['username'].touched" 
+                        class="form-error-msg"> Username require at least {{basicForm.controls['username'].errors.minlength.requiredLength}} characters </small>
+                        <small 
+                        *ngIf="basicForm.controls['username'].hasError('maxlength') && basicForm.controls['username'].touched" 
+                        class="form-error-msg"> Username can not contain more than {{basicForm.controls['username'].errors.maxlength.requiredLength}} characters </small> -->
+                    </div>
+
+                </div>
+                <div fxFlex="50" fxFlex.gt-xs="50">
+                    <div class="pb-16">
+                      <mat-form-field appearance="fill"  class="full-width">
+                        <mat-label>Department</mat-label>
+                        <input  [(ngModel)]="this.student.departmentId" matInput>
+                      </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <button style="margin-left: 350px;"
+            mat-raised-button 
+            color="primary" (click)="UpdateStudent()">Update</button>
+    </mat-card-content>
+</mat-card>

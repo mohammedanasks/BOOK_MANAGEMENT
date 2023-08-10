@@ -1,0 +1,54 @@
+<!-- 
+
+<div style="width: 230px;height: 270px;">
+
+  <mat-dialog-content >
+    <h5 style="margin-left: 65px;font-weight:bold"></h5>
+  </mat-dialog-content>
+  <mat-dialog-content style="margin-top: 15px;">
+    StudentName : {{finedata.studentName}}
+   </mat-dialog-content>
+  <mat-dialog-content *ngFor="let item of this.finedata.borrowItems" style="margin-top: 15px;">
+    Book : {{item.bookName}}
+   </mat-dialog-content>
+  <mat-dialog-content style="margin-top: 15px;">
+   FineAmount : {{finedata.fine}}
+  </mat-dialog-content> -->
+  
+
+ 
+  <!-- <mat-form-field style="margin-top: 15px;" class="example-form-field">
+    <mat-label>Pay fine</mat-label>
+    <input  [(ngModel)]="this.SaveFineData.amount" class="form-control" type="number" name="fineAmount">
+  </mat-form-field>
+
+
+  <button (click)="savefine()" (click)="DeleteBorrowBook(finedata.id)" style="margin-top: 0px; margin-left:140px" mat-raised-button color="primary" mat-dialog-close tabindex="-1">pay&close</button>
+  -->
+<!-- </div> -->
+
+
+<div class="outofstockmsg" style="width: 200px;height:100px;color: red;">
+  <h2>{{message}}</h2>
+</div>
+<div style="width: 230px;height: 270px;" *ngFor="let item of this.finedata.borrowItems" >
+  <form >
+  <div class="form-group">
+    <h3>StudentName  :  {{finedata.studentName}}</h3>
+    <h3>Book  :  {{item.bookName}}</h3>
+    <h3>Amount :  {{finedata.fine}}</h3>
+   <div class="form-group">
+     <label style="margin-top: 15px" for="exampleFormControlInput1">Findstudent</label>
+     <select [(ngModel)]="SaveFineData.studentId"class="form-control" name="departments">
+       <option [value]="stu.id" [text]="stu.name" *ngFor="let stu of students">select</option>
+     </select>
+     <label style="margin-top: 15px" for="exampleFormControlInput1">EnterAmount</label>
+     <input   type="number"  [(ngModel)]="this.SaveFineData.amount"  class="form-control" />
+     <button type="submit" (click)="CopyIncriment(item.bookId)"   (click)="savefine()" (click)="DeleteBorrowBook(finedata.id)" style="margin-top: 10px; margin-left:140px" mat-raised-button color="primary" mat-dialog-close tabindex="-1">pay&close</button>
+   </div>
+  </div>
+</form>
+ 
+</div>
+
+

@@ -1,0 +1,48 @@
+
+<div class="main">
+    <div class="title">
+      <mat-label style="margin-top: 100px;" >DelayedBooks</mat-label>
+    </div>
+    <table  mat-table  [dataSource]="BorrowedSource" >  
+      <ng-container matColumnDef="Id">
+        <th class="head" mat-header-cell *matHeaderCellDef> Id </th>
+        <td class="data" mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="StudentName">
+      <ng-container >
+        <th class="head"  mat-header-cell *matHeaderCellDef>StudentName</th>
+        <td class="data" mat-cell *matCellDef="let element"> {{element.studentName}} </td>
+      </ng-container>
+      </ng-container>
+
+      <ng-container matColumnDef="BookName">
+        <th class="head"  mat-header-cell *matHeaderCellDef>BookName</th>
+        <td class="data" mat-cell *matCellDef="let element">{{element.borrowItems[0].bookName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="ReturnDate">
+        <th  class="head" mat-header-cell *matHeaderCellDef>ReturnDate</th>
+        <td class="data" mat-cell *matCellDef="let element">{{element.returnDate}}
+        </td>      
+      </ng-container>
+      <ng-container matColumnDef="Days">
+        <th class="head"  mat-header-cell *matHeaderCellDef>Days</th>
+        <td class="data" style="color: red;" mat-cell *matCellDef="let element"> {{element.days}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Fine">
+        <th class="head"  mat-header-cell *matHeaderCellDef>Fine</th>
+        <td class="data" style="color: red;" mat-cell *matCellDef="let element"> {{element.fine}} </td>
+      </ng-container>
+    
+    
+      <tr  mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table> 
+
+  
+  </div>
+  
+  
+
+  
+  

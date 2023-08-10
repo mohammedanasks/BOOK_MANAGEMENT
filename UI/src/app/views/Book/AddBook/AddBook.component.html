@@ -1,0 +1,118 @@
+<div class="main" style="display: flex">
+  <table style="height: 600px">
+    <tbody>
+      <div class="form-group">
+        <label style="margin-top: 20px" class="bookname" for="exampleFormControlInput1">BookName</label>
+        <input
+          [(ngModel)]="this.Book.name"
+          type=""
+          name="name1"
+          style="width: 200px"
+          class="form-control"
+          id="exampleFormControlInput1"
+        />
+      </div>
+
+      <label style="margin-top: 0px" class="bookname" for="exampleFormControlInput1">Category</label>
+      <div id="authe" class="form-group">
+        <select
+          name="selectAuthor"
+          [(ngModel)]="Book.categoryId"
+          style="width: 200px; margin-left: 7px; margin-top: 0px"
+          class="form-control"
+          id="exampleFormControlSelect1"
+        >
+          <option [value]="items.id" [text]="items.name" *ngFor="let items of Category"></option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label style="margin-top: 6px" class="bookname" for="exampleFormControlInput1">Copies</label>
+        <input
+          [(ngModel)]="this.Book.copies"
+          type="email"
+          name="name1"
+          style="width: 200px"
+          class="form-control"
+          id="exampleFormControlInput1"
+        />
+      </div>
+
+      <label style="margin-top: 0px" class="bookname" for="exampleFormControlInput1">AutherName</label>
+      <div id="authe" class="form-group" *ngFor="let line of this.Book.bookAuthors; let i = index">
+        <select
+          name="selectAuthor{{ i }}"
+          [(ngModel)]="line.authorId"
+          style="width: 200px; margin-left: 7px; margin-top: 0px"
+          class="form-control"
+          id="exampleFormControlSelect1"
+        >
+          <option [value]="item.id" [text]="item.text" *ngFor="let item of authors"></option>
+        </select>
+        <button style="color: rgb(255, 55, 0)" (click)="removeAuthor(i)">RemoveAuthor</button>
+      </div>
+
+      <div style="display: flex" class="buttn">
+        <div style="margin-top: 10px; margin-left: 40px" class="form-group">
+          <button style="color: blue" (click)="addAuthor()">Add Author</button>
+        </div>
+        <div style="margin-top: 10px; margin-left: 40px" class="form-group">
+          <button style="margin-right: 30px; color: green" (click)="AddBook()">Add Book</button>
+        </div>
+      </div>
+    </tbody>
+  </table>
+
+  <table *ngIf="this.show">
+    <thead>
+      <th style="border: 1px solid black">BookName</th>
+      <th style="border: 1px solid black">Copies</th>
+      <th style="border: 1px solid black">Category</th>
+      <th style="border: 1px solid black">Authore</th>
+      <th style="border: 1px solid black">Actions</th>
+    </thead>
+    <tbody>
+      <tr style="border: 1px solid black" *ngFor="let linew of this.booksData">
+        <td style="border: 1px solid black">{{ linew.name }}</td>
+        <td style="border: 1px solid black; padding: 5px">{{ linew.copies }}</td>
+        <td style="border: 1px solid black; padding: 5px">{{ linew.category }}</td>
+        <td style="border: 1px solid black; padding: 5px">
+          <p *ngFor="let author of linew.bookAuthors">{{author.authorName}}</p>
+        </td>
+        <button (click)="DeleteBook(linew)" style="color: red">Delete</button>
+        <button style="margin-left: 6px; color: rgb(30, 210, 186)">Edit</button>
+      </tr>
+    </tbody>
+  </table>
+
+  <table style="height: 100px" *ngIf="!this.show">
+    <thead>
+      <th class="tdata" style="border: 1px solid black">BookName</th>
+      <th class="tdata" style="border: 1px solid black">copies</th>
+      <th class="tdata" style="border: 1px solid black">BookCategory</th>
+      <th class="tdata" style="border: 1px solid black">AuthorName</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of searchdata">
+        <td style="border: 1px solid black">{{ item.name }}</td>
+        <td style="border: 1px solid black">{{ item.copies }}</td>
+        <td style="border: 1px solid black">{{ item.category }}</td>
+        <td style="border: 1px solid black">{{ this.serchauthorname }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div
+    style="padding: 10px; border: 1px solid black; height: 150px; margin-left: 50px; margin-top: 80px"
+    class="form-group"
+  >
+    <label style="margin-top: 20px; margin-left: 30px" class="bookname" for="exampleFormControlInput1"
+      >SearchBook</label
+    >
+    <input [(ngModel)]="this.search" type="text" name="name2" style="width: 200px; margin-top: 5px" />
+    <button (click)="SearchBook()" style="background-color: green">Search</button>
+  </div>
+</div>
+
+
+
